@@ -2,6 +2,7 @@
   border-left: 1px solid #eee;
   border-right: 1px solid #eee;
   width: 30rem;
+  /*background-color: #232328;*/
 }
 
 @media (max-width: 800px) {
