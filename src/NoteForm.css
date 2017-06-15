@@ -1,0 +1,25 @@
+.NoteForm {
+  flex-grow: 1;
+  padding: 0 3rem;
+}
+.NoteForm .form-actions {
+  padding-top: 1rem;
+  margin-left: -2rem;
+  display: flex;
+  align-content: center;
+}
+.NoteForm button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+.NoteForm button i.fa {
+  color: #999;
+  font-size: 2rem;
+  margin: 0;
+}
+.NoteForm form {
+  margin: 0 auto;
+  max-width: 80rem;
+}
+

@@ -7,8 +7,8 @@ import './Main.css'
 const Main = () => {
     return (
         <div className="Main">
-            <NoteList />
             <Sidebar />
+            <NoteList />
             <NoteForm />
         </div>
     )

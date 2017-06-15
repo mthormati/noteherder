@@ -1,0 +1,17 @@
+input[name="title"] {
+  border: none;
+  font-size: 200%;
+  font-family: "Fauna One";
+  color: #008BF8;
+  font-weight: 400;
+  width: 100%;
+}
+input[name="title"] {
+  outline: none;
+}
+textarea {
+  border-color: #eee;
+  width: 100%;
+  height: calc(100vh - 140px);
+  font-size: 1.3em;
+}

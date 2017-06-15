@@ -6,7 +6,7 @@ import './Sidebar.css'
 
 const Sidebar = () => {
     return (
-      <nav className="Nav">
+      <nav className="Sidebar">
         <div className="logo">
           <img src={quill} alt="Noteherder" />
         </div>
