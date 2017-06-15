@@ -8,7 +8,7 @@ const NoteList = ({ notes }) => {
             <h3>Notes</h3>
             <ul id="notes">
                 {Object.keys(notes).map((noteId) => {
-                    return <Note note={notes[noteId]}/>
+                    return <Note key={noteId} note={notes[noteId]}/>
                 })}
             </ul>
         </div>        
