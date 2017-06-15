@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import './NoteForm.css'
-import Form from './Form'
 
 class NoteForm extends Component {
     render() {
         return (
             <div className="NoteForm">
-                <Form />
+                <form>
+                    <p>
+                        <input type="text" name="title" placeholder="Title your note" value=''/>
+                    </p>
+                    <p>
+                        <textarea name="body" cols="30" rows="10" placeholder="Just start typing..."></textarea>
+                    </p>
+                </form>
             </div>
         )
     }
