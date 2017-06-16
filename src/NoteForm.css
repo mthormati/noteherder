@@ -1,6 +1,7 @@
 .NoteForm {
   flex-grow: 1;
   padding: 0 3rem;
+  background-color: #1b2b34 !important;
 }
 .NoteForm .form-actions {
   padding-top: 1rem;
@@ -14,11 +15,16 @@
   padding: 0;
 }
 .NoteForm button[type="submit"] {
-  background-color: #008BF8;
+  background-color: #00bcd4;
+  width: 100%;
   border-radius: 4px;
   color: white;
   font-size: 1.4rem;
   padding: 1rem;
+}
+.NoteForm button[type="submit"]:hover {
+  opacity: 0.8;
+  transition: 0.25s ease;
 }
 .NoteForm button i.fa {
   color: #999;
@@ -33,16 +39,29 @@ input[name="title"] {
   border: none;
   font-size: 200%;
   font-family: "Fauna One";
-  color: #008BF8;
+  color: #00bcd4;
   font-weight: 400;
   width: 100%;
+  background-color: #33434c;
 }
 input[name="title"] {
   outline: none;
 }
+input::-webkit-input-placeholder {
+  color: #969696;
+}
 textarea {
+  color: #98cff5;
   border-color: #eee;
   width: 100%;
   height: calc(100vh - 140px);
   font-size: 1.3em;
+  background-color: #33434c;
+  transition: .25s ease;
+}
+textarea::-webkit-input-placeholder {
+  color: #969696;
+}
+textarea:focus {
+  border-color: #00bcd4;
 }
