@@ -7,8 +7,9 @@ import './Sidebar.css'
 
 class Sidebar extends Component {
 
-  clickHandler = () => {
-    
+  clickHandler = (e) => {
+    e.preventDefault()
+    this.props.createNewNote();
   }
 
   render() {

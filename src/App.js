@@ -8,8 +8,30 @@ class App extends Component {
     this.state = {
       notes: {
 
-      }
+      },
+      note: this.blankNote(),
     }
+  }
+
+  createNewNote = () => {
+    this.setState({ note: this.blankNote() })
+  }
+
+  blankNote = () => {
+    return {
+      id: null,
+      title: '',
+      body: '',
+    }
+  }
+
+  updateNote = (text, targetName) => {
+    const note = {...this.state.note}
+    note[targetName] = text
+    this.setState(
+      { note },
+      () => { this.saveNote(this.state.note) }
+    )    
   }
 
   saveNote = (note) => {
@@ -24,7 +46,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} saveNote={this.saveNote} />
+        <Main notes={this.state.notes} 
+              note={this.state.note} 
+              createNewNote={this.createNewNote} 
+              saveNote={this.saveNote} 
+              updateNote={this.updateNote}
+        />
       </div>
     )
   }
