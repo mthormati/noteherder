@@ -8,7 +8,7 @@ const Main = (props) => {
     return (
         <div className="Main">
             <Sidebar createNewNote={props.createNewNote.bind(this)}/>
-            <NoteList notes={props.notes} />
+            <NoteList notes={props.notes} populateForm={props.populateForm}/>
             <NoteForm saveNote={props.saveNote.bind(this)} note={props.note} updateNote={props.updateNote.bind(this)}/>
         </div>
     )

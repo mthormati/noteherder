@@ -14,6 +14,7 @@ class NoteForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <p>
                         <input 
+                            required
                             type="text" 
                             name="title" 
                             placeholder="Title your note" 
@@ -23,6 +24,7 @@ class NoteForm extends Component {
                     </p>
                     <p>
                         <textarea 
+                            required
                             name="body" 
                             cols="30" 
                             rows="10" 
@@ -31,7 +33,6 @@ class NoteForm extends Component {
                             onChange={this.handleChanges}>
                         </textarea>
                     </p>
-                    {/*<button type="submit">Save and New</button>*/}
                 </form>
             </div>
         )

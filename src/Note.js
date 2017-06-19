@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Note = ({ note }) => {
+const Note = ({ id, note, populateForm }) => {
     return (
         <li>
-            <div className="note">
+            <div data-key={id} className="note" onClick={populateForm}>
                 <div className="note-title">
                     {note.title}
                 </div>

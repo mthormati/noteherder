@@ -13,6 +13,16 @@ class App extends Component {
     }
   }
 
+  populateForm = (e) => {
+    this.createNewNote()
+
+    Object.keys(this.state.notes).map((noteId) => {
+      if (e.currentTarget.dataset.key === noteId) {
+        this.setState({ note : this.state.notes[noteId] }) 
+      }
+    })
+  }
+
   createNewNote = () => {
     this.setState({ note: this.blankNote() })
   }
@@ -51,6 +61,7 @@ class App extends Component {
               createNewNote={this.createNewNote} 
               saveNote={this.saveNote} 
               updateNote={this.updateNote}
+              populateForm={this.populateForm}
         />
       </div>
     )
