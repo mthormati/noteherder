@@ -50,6 +50,7 @@ class App extends Component {
       .then(() => {
         //Stop syncing with firebase
         base.removeBinding(this.ref)
+        this.setState({ notes: {} });
       })
   }
 
