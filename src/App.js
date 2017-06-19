@@ -16,9 +16,22 @@ class App extends Component {
       uid: null,
     }
   }
+  
+  componentWillMount() {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        //Finished signing in
+        this.authHandler(user)
+      } else {
+        //Finished signing out
+        this.setState({ uid: null })
+      }
+    })
+  }
+  
 
   syncNotes = () => {
-    base.syncState(
+    this.ref = base.syncState(
       `${this.state.uid}/notes`,
       {
         context: this,
@@ -34,7 +47,10 @@ class App extends Component {
   signOut = () => {
     auth
       .signOut()
-      .then(this.setState({ uid: null }))
+      .then(() => {
+        //Stop syncing with firebase
+        base.removeBinding(this.ref)
+      })
   }
 
   authHandler = (user) => {
@@ -45,16 +61,19 @@ class App extends Component {
   }
 
   renderMain = () => {
+    const actions = {
+      createNewNote: this.createNewNote,
+      saveNote: this.saveNote,
+      updateNote: this.updateNote,
+      populateForm: this.populateForm,
+      deleteNote: this.deleteNote,
+    }
     return (
       <div>
         <SignOut signOut={this.signOut}/>
         <Main notes={this.state.notes} 
               note={this.state.note} 
-              createNewNote={this.createNewNote} 
-              saveNote={this.saveNote} 
-              updateNote={this.updateNote}
-              populateForm={this.populateForm}
-              deleteNote={this.deleteNote}
+              {...actions}
         />
       </div>
     )
@@ -66,7 +85,9 @@ class App extends Component {
 
     Object.keys(this.state.notes).map((noteId) => {
       if (this.state.note.id === noteId) {
-        delete this.state.notes[noteId]
+        const notes = {...this.state.notes}
+        notes[noteId] = null
+        this.setState({ notes });
       }
     })
   }
@@ -116,7 +137,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn authHandler={this.authHandler}/> }
+        { this.signedIn() ? this.renderMain() : <SignIn/> }
       </div>
     )
   }
