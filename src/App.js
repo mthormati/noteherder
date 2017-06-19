@@ -13,8 +13,19 @@ class App extends Component {
     }
   }
 
+  deleteNote = (e) => {
+    this.createNewNote()
+
+    Object.keys(this.state.notes).map((noteId) => {
+      if (this.state.note.id === noteId) {
+        delete this.state.notes[noteId]
+      }
+    })
+  }
+
   populateForm = (e) => {
     this.createNewNote()
+    document.querySelector('.delete').style.visibility = "visible"
 
     Object.keys(this.state.notes).map((noteId) => {
       if (e.currentTarget.dataset.key === noteId) {
@@ -24,6 +35,7 @@ class App extends Component {
   }
 
   createNewNote = () => {
+    document.querySelector('.delete').style.visibility = "hidden"; 
     this.setState({ note: this.blankNote() })
   }
 
@@ -62,6 +74,7 @@ class App extends Component {
               saveNote={this.saveNote} 
               updateNote={this.updateNote}
               populateForm={this.populateForm}
+              deleteNote={this.deleteNote}
         />
       </div>
     )
