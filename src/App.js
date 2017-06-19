@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Main from './Main'
+import base from './base'
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,16 @@ class App extends Component {
       },
       note: this.blankNote(),
     }
+  }
+  
+  componentWillMount() {
+    base.syncState(
+      'notes',
+      {
+        context: this,
+        state: 'notes',
+      }
+    )
   }
 
   deleteNote = (e) => {
