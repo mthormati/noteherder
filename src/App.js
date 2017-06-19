@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Main from './Main'
+import SignIn from './SignIn'
+import SignOut from './SignOut'
 import base from './base'
 
 class App extends Component {
@@ -21,6 +23,26 @@ class App extends Component {
         context: this,
         state: 'notes',
       }
+    )
+  }
+
+  signedIn = () => {
+    return true
+  }
+
+  renderMain = () => {
+    return (
+      <div>
+        <SignOut />
+        <Main notes={this.state.notes} 
+              note={this.state.note} 
+              createNewNote={this.createNewNote} 
+              saveNote={this.saveNote} 
+              updateNote={this.updateNote}
+              populateForm={this.populateForm}
+              deleteNote={this.deleteNote}
+        />
+      </div>
     )
   }
 
@@ -79,14 +101,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} 
-              note={this.state.note} 
-              createNewNote={this.createNewNote} 
-              saveNote={this.saveNote} 
-              updateNote={this.updateNote}
-              populateForm={this.populateForm}
-              deleteNote={this.deleteNote}
-        />
+        { this.signedIn() ? this.renderMain() : <SignIn /> }
       </div>
     )
   }
