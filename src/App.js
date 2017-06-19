@@ -3,7 +3,7 @@ import './App.css';
 import Main from './Main'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
-import base from './base'
+import base, {auth} from './base'
 
 class App extends Component {
   constructor() {
@@ -16,10 +16,10 @@ class App extends Component {
       uid: null,
     }
   }
-  
-  componentWillMount() {
+
+  syncNotes = () => {
     base.syncState(
-      'notes',
+      `${this.state.uid}/notes`,
       {
         context: this,
         state: 'notes',
@@ -32,11 +32,16 @@ class App extends Component {
   }
 
   signOut = () => {
-    this.setState({ uid: null })
+    auth
+      .signOut()
+      .then(this.setState({ uid: null }))
   }
 
   authHandler = (user) => {
-    this.setState({ uid: user.uid })
+    this.setState(
+      { uid: user.uid },
+      this.syncNotes  
+    )
   }
 
   renderMain = () => {
