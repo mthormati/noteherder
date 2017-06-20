@@ -17,6 +17,9 @@ const SignIn = () => {
     <div>
       <Particles params={ particles } style={{position: "absolute"}}/>
       <div id="button-container">
+
+        <div id="title">NoteHerder</div>
+
         <button id="github" className="SignIn" onClick={authenticate}>
           Github Sign In 
         </button>

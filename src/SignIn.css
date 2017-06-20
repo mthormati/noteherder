@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+SC');
+
 body {
   background-color: #263238;
 }
@@ -24,7 +26,7 @@ body {
 }
 
 #button-container {
-  width: 300px;
+  text-align: center;
   background-color: #008af8;
   padding: 3rem;
   margin: 0 auto; 
@@ -34,4 +36,14 @@ body {
   top: 50%;
   border-radius: 10px;
   opacity: 0.92;
+}
+
+#title {
+  background: -webkit-linear-gradient(left, #FF9800 , #FF5722);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+  font-family: 'Cormorant SC', serif;
+  font-size: 4em;
+  margin-bottom: 4rem;
+  font-weight: 600;
 }
