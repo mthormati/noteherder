@@ -1,7 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Cormorant+SC');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC');
 
 body {
   background-color: #263238;
+}
+
+#signInContainer {
+  width: 100vw;
+  height: 100vh;
 }
 
 .SignIn {
@@ -12,9 +17,9 @@ body {
   display: block;
   margin: 1rem auto;
   padding: 20px;
-  -webkit-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  transition: background 0.2s;
+  -webkit-transition: 0.25s ease;
+  -o-transition: 0.25s ease;
+  transition: 0.0.25s ease;
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
@@ -27,23 +32,23 @@ body {
 
 #button-container {
   text-align: center;
-  background-color: #008af8;
-  padding: 3rem;
-  margin: 0 auto; 
-  transform: translate(-50%, -50%);
-  position: absolute;
+  background-color: rgba(3, 169, 244, 0.9);
+  border-radius: 10px;
+  padding: 2rem;
+  position: absolute; 
+  width: 500px;
+  height: 350px;
+  margin: -175px 0 0 -250px;
   left: 50%;
   top: 50%;
-  border-radius: 10px;
-  opacity: 0.92;
 }
 
 #title {
   background: -webkit-linear-gradient(left, #FF9800 , #FF5722);
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
-  font-family: 'Cormorant SC', serif;
-  font-size: 4em;
+  font-family: 'IM Fell French Canon SC', serif;
+  font-size: 5em;
   margin-bottom: 4rem;
-  font-weight: 600;
+
 }
