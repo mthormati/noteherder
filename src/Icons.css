@@ -1,0 +1,25 @@
+.icon {
+  transform: scale(1.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  transition: 0.25s ease;
+}
+
+.blue {
+  border: 1px solid #00bcd4;
+  color: #00bcd4;
+}
+.blue:hover {
+  color: #333333;
+  background-color: #00bcd4;
+}
+
+.red {
+  border: 1px solid red;
+  color: red;
+}
+.red:hover {
+  color: #333333;
+  background-color: red;
+}

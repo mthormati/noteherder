@@ -68,10 +68,10 @@ class App extends Component {
       updateNote: this.updateNote,
       populateForm: this.populateForm,
       deleteNote: this.deleteNote,
+      signOut: this.signOut,
     }
     return (
       <div>
-        <SignOut signOut={this.signOut}/>
         <Main notes={this.state.notes} 
               note={this.state.note} 
               {...actions}

@@ -1,9 +1,10 @@
 import React from 'react';
+import './Icons.css'
 
-const SignOut = ({ signOut }) => {
+const SignOut = ({ signOut}) => {
   return (
     <button className="SignOut" onClick={signOut}>
-      Sign Out
+      <i className="blue icon fa fa-sign-out" aria-hidden="true"></i>
     </button>
   );
 };
