@@ -3,7 +3,7 @@ import './Icons.css'
 
 const DeleteNote = ({ deleteNote }) => {
   return (
-    <button className="new-note delete" onClick={deleteNote}>
+    <button className="new-note delete no-outline" onClick={deleteNote}>
       <i className="red icon fa fa-minus" aria-hidden="true"></i>
     </button>
   );

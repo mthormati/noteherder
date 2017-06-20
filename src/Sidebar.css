@@ -43,3 +43,7 @@
 .Sidebar button:hover img.outline {
   opacity: 0; 
 }
+
+.no-outline {
+  outline: 0;
+}
