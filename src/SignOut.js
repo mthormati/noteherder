@@ -1,5 +1,6 @@
 import React from 'react';
 import './Icons.css'
+import './SignOut.css'
 
 const SignOut = ({ signOut}) => {
   return (

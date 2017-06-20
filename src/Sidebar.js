@@ -13,11 +13,11 @@ const Sidebar = (props) => {
           <img src={quill} alt="Noteherder" />
         </div>
 
-        <SignOut signOut={props.signOut}/>
-
         <AddNew createNewNote={props.createNewNote}/>
 
         <DeleteNote deleteNote={props.deleteNote}/>
+
+        <SignOut signOut={props.signOut}/>
       </nav>
     )
 };
