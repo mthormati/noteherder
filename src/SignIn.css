@@ -1,5 +1,9 @@
+body {
+  background-color: #263238;
+}
+
 .SignIn {
-  background-color: #008BF8;
+  background-color: #00bcd4;
   border: 0;
   border-radius: 5px;
   color: white;
@@ -12,4 +16,8 @@
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
+}
+
+#button-container {
+  
 }

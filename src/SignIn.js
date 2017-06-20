@@ -1,6 +1,8 @@
 import React from 'react';
 import './SignIn.css'
 import { auth, githubProvider, googleProvider } from './base'
+import Particles from 'react-particles-js'
+const particles = require('./particles.json')
 
 const SignIn = () => {
   const authenticate = (e) => {
@@ -13,12 +15,15 @@ const SignIn = () => {
 
   return (
     <div>
-      <button id="github" className="SignIn" onClick={authenticate}>
-        Github Sign In 
-      </button>
-      <button id="google" className="SignIn" onClick={authenticate}>
-        Google Sign In 
-      </button>
+      <Particles params={ particles } style={{position: "absolute"}}/>
+      <div id="button-container">
+        <button id="github" className="SignIn" onClick={authenticate}>
+          Github Sign In 
+        </button>
+        <button id="google" className="SignIn" onClick={authenticate}>
+          Google Sign In 
+        </button>
+      </div>
     </div>
   )
 }
