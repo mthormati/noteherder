@@ -16,8 +16,22 @@ body {
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
+  opacity: 1 !important;
+  cursor: pointer;
+}
+.SignIn:hover {
+  filter: brightness(95%);
 }
 
 #button-container {
-  
+  width: 300px;
+  background-color: #008af8;
+  padding: 3rem;
+  margin: 0 auto; 
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+  opacity: 0.92;
 }
