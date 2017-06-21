@@ -3,6 +3,23 @@ import './NoteForm.css'
 
 class NoteForm extends Component {
 
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(nextProps);     
+    //     const newId = nextProps.match.params.id;
+
+    //     if (newId !== this.props.note.id) {
+    //         const note = nextProps.notes[newId];
+    //         if (note) {
+    //             // this.props.setCurrentNote(note)
+    //         } else {
+    //             this.props.history.push('/notes');
+    //         }
+    //     } else if (this.props.note.id) {
+    //         // this.props.resetCurrentNote()
+    //     }
+    // }
+    
+
     handleChanges = (e) => {
         const text = e.target.value;
         this.props.updateNote(text, e.target.name);

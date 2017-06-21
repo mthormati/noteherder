@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom'; 
+
 import './App.css';
 import Main from './Main'
 import SignIn from './SignIn'
@@ -18,6 +20,7 @@ class App extends Component {
   }
   
   componentWillMount() {
+    this.getUserFromLocalStorage();
     auth.onAuthStateChanged((user) => {
       if (user) {
         //Finished signing in
@@ -27,6 +30,12 @@ class App extends Component {
         this.setState({ uid: null })
       }
     })
+  }
+
+  getUserFromLocalStorage() {
+    const uid = localStorage.getItem('uid');
+    if (!uid) return;
+    this.setState({ uid });
   }
   
 
@@ -41,7 +50,7 @@ class App extends Component {
   }
 
   signedIn = () => {
-    return this.state.uid
+    return this.state.uid;
   }
 
   signOut = () => {
@@ -49,34 +58,21 @@ class App extends Component {
       .signOut()
       .then(() => {
         //Stop syncing with firebase
-        base.removeBinding(this.ref)
+        this.stopSyncing();
         this.setState({ notes: {} });
       })
   }
 
+  stopSyncing = () => {
+    if (this.ref)
+      base.removeBinding(this.ref)
+  }
+
   authHandler = (user) => {
+    localStorage.setItem('uid', user.uid);
     this.setState(
       { uid: user.uid },
       this.syncNotes  
-    )
-  }
-
-  renderMain = () => {
-    const actions = {
-      createNewNote: this.createNewNote,
-      saveNote: this.saveNote,
-      updateNote: this.updateNote,
-      populateForm: this.populateForm,
-      deleteNote: this.deleteNote,
-      signOut: this.signOut,
-    }
-    return (
-      <div>
-        <Main notes={this.state.notes} 
-              note={this.state.note} 
-              {...actions}
-        />
-      </div>
     )
   }
 
@@ -136,12 +132,38 @@ class App extends Component {
   }
 
   render() {
+    const actions = {
+      createNewNote: this.createNewNote,
+      saveNote: this.saveNote,
+      updateNote: this.updateNote,
+      populateForm: this.populateForm,
+      deleteNote: this.deleteNote,
+      signOut: this.signOut,
+    };
+
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn/> }
+        <Switch>
+          <Route path="/notes" render={() => (
+            this.signedIn() 
+            ? <Main 
+                notes={this.state.notes} 
+                note={this.state.note} 
+                {...actions}
+              />
+            : <Redirect to="/sign-in" component={SignIn}/>
+          )}/>
+          <Route path="/sign-in" render={() => (
+            this.signedIn()
+            ? <Redirect to="/notes" />
+            : <SignIn />
+          )}/>
+          <Route render={() => <Redirect to="/notes"/>} />
+        </Switch>        
       </div>
-    )
+    );
   }
 }
 
 export default App;
+
