@@ -85,18 +85,7 @@ class App extends Component {
         const notes = {...this.state.notes};
         notes[noteId] = null;
         this.setState({ notes });
-        this.props.history.push('/notes')
-      }
-    })
-  }
-
-  populateForm = (e) => {
-    this.createNewNote()
-    document.querySelector('.delete').style.visibility = "visible"
-
-    Object.keys(this.state.notes).map((noteId) => {
-      if (e.currentTarget.dataset.key === noteId) {
-        this.setState({ note : this.state.notes[noteId] }) 
+        this.props.history.push('/notes');
       }
     })
   }
