@@ -13,7 +13,7 @@ const Sidebar = (props) => {
           <img src={quill} alt="Noteherder" />
         </div>
 
-        <AddNew createNewNote={props.createNewNote}/>
+        <AddNew />
 
         <DeleteNote deleteNote={props.deleteNote}/>
 

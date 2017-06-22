@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './Icons.css'
 
-const AddNew = ({ createNewNote }) => {
+const AddNew = () => {
   return (
     <Link to="/notes">
       <button className="new-note no-outline">
