@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
 
 import quill from './quill.svg'
 import SignOut from './SignOut'
@@ -15,7 +16,7 @@ const Sidebar = (props) => {
 
         <AddNew />
 
-        <DeleteNote deleteNote={props.deleteNote}/>
+        <Route path='/notes/:id' render={() => <DeleteNote deleteNote={props.deleteNote}/>} />
 
         <SignOut signOut={props.signOut}/>
       </nav>

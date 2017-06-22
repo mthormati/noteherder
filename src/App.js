@@ -95,7 +95,6 @@ class App extends Component {
   }
 
   createNewNote = () => {
-    document.querySelector('.delete').style.visibility = "hidden"; 
     this.setState({ note: this.blankNote() })
   }
 

@@ -29,10 +29,6 @@
   width: 60%; 
 }
 
-.delete {
-  visibility: hidden;
-}
-
 .Sidebar button img {
   position: absolute;
   left: 0;
