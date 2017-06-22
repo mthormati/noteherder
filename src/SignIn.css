@@ -38,8 +38,8 @@ body {
   padding: 2rem;
   position: absolute; 
   width: 50rem;
-  height: 35rem;
-  margin: -17.5rem 0 0 -25rem;
+  height: 50rem;
+  margin: -25rem 0 0 -25rem;
   left: 50%;
   top: 50%;
 }
@@ -56,4 +56,15 @@ body {
 .icon-signin {
   margin-right: 2rem;   
   transform: scale(1.5);
+}
+
+#button-container .logo {
+  font-family: "Fauna One";
+  color: #666;
+  font-size: 3rem;
+}
+
+#button-container .logo img {
+  width: 100px;
+  padding-left: 4px;
 }

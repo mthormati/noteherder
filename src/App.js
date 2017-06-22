@@ -140,6 +140,10 @@ class App extends Component {
       deleteNote: this.deleteNote,
       signOut: this.signOut,
     };
+    const noteData = {
+      notes: this.state.notes,
+      note: this.state.note,
+    }
 
     return (
       <div className="App">
@@ -147,8 +151,7 @@ class App extends Component {
           <Route path="/notes" render={() => (
             this.signedIn() 
             ? <Main 
-                notes={this.state.notes} 
-                note={this.state.note} 
+                {...noteData}
                 {...actions}
               />
             : <Redirect to="/sign-in" component={SignIn}/>
