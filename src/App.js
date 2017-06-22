@@ -82,9 +82,10 @@ class App extends Component {
 
     Object.keys(this.state.notes).map((noteId) => {
       if (this.state.note.id === noteId) {
-        const notes = {...this.state.notes}
-        notes[noteId] = null
+        const notes = {...this.state.notes};
+        notes[noteId] = null;
         this.setState({ notes });
+        this.props.history.push('/notes')
       }
     })
   }
@@ -127,12 +128,17 @@ class App extends Component {
   }
 
   saveNote = (note) => {
+    let shouldRedirect = false;
     if (!note.id) {
-      note.id = `note-${Date.now()}`
+      note.id = `note-${Date.now()}`;
+      shouldRedirect = true;
     }
     const notes = {...this.state.notes}
     notes[note.id] = note
     this.setState({ notes })
+    if (shouldRedirect) {
+      this.props.history.push(`/notes/${note.id}`);
+    }
   }
 
   render() {
