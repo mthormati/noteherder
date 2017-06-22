@@ -100,6 +100,10 @@ class App extends Component {
     })
   }
 
+  setCurrentNote = (note) => {
+    this.setState({ note });
+  }
+
   createNewNote = () => {
     document.querySelector('.delete').style.visibility = "hidden"; 
     this.setState({ note: this.blankNote() })
@@ -139,6 +143,7 @@ class App extends Component {
       populateForm: this.populateForm,
       deleteNote: this.deleteNote,
       signOut: this.signOut,
+      setCurrentNote: this.setCurrentNote,
     };
     const noteData = {
       notes: this.state.notes,

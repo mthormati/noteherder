@@ -14,10 +14,10 @@ const Main = (props) => {
 
             <Switch>
                 <Route path="/notes/:id" render={(navProps) => (
-                    <NoteForm saveNote={props.saveNote.bind(this)} notes={props.notes} note={props.note} updateNote={props.updateNote.bind(this)} {...navProps}/>
+                    <NoteForm {...props} {...navProps}/>
                 )}/>
                 <Route path="/notes" render={(navProps) => (
-                    <NoteForm exact saveNote={props.saveNote.bind(this)} notes={props.notes} note={props.note} updateNote={props.updateNote.bind(this)} {...navProps}/>
+                    <NoteForm {...props} {...navProps}/>
                 )}/>
             </Switch>
         </div>
